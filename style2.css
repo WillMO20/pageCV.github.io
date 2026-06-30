@@ -582,3 +582,23 @@ body {
         gap: 2rem;
     }
 }
+/* DISEÑO PARA PC: Dos columnas frente a frente */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2.5rem;
+}
+
+/* 👇 CONFIGURACIÓN RESPONSIVA (Media Query) */
+@media (max-width: 768px) {
+    /* DISEÑO PARA CELULAR: Las casillas se apilan una debajo de otra */
+    .certifications-grid {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+    
+    /* Achicamos un poco el visor del PDF para que no ocupe toda la pantalla del fono */
+    .pdf-container {
+        height: 200px; 
+    }
+}

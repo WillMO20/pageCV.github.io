@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- 👇 ESTA LÍNEA HACE QUE SEA RESPONSIVA -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Morales - Portafolio</title>
+    <title>Joseph Morales - Mi Portafolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +12,7 @@
         <div class="sidebar-title">Navegación</div>
         <div class="sidebar-links">
             <a href="index.html" class="active">Mi CV Profesional</a>
-            <a href="index2.html">Ingeniería industrial - Campos</a>
+            <a href="index2.html">Ingeniería industrial</a>
         </div>
     </nav>
 
@@ -28,6 +27,7 @@
             <a href="#inicio">Inicio</a>
             <a href="#experiencia">Experiencia</a>
             <a href="#competencias">Competencias</a>
+            <a href="#certificaciones">Certificados</a>
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
@@ -155,10 +155,10 @@
                     <div class="skills-card">
                         <h3>Aptitudes</h3>
                         <ul class="skills-list">
-                            <li>Excelente atención al cliente</li>
+                            <li>Eficaz atención al cliente</li>
                             <li>Gestión de reclamaciones e inventarios</li>
                             <li>Responsabilidad y puntualidad</li>
-                            <li>Manejo de software para comercios</li>
+                            <li>Manejo de software para comercios como Excel, Word y PowerBi</li>
                             <li>Capacidad de escucha y empatía</li>
                         </ul>
                     </div>
@@ -169,19 +169,70 @@
                             <h4>Certificación de Ofimática Básica</h4>
                             <p>Conocimientos fundamentales en herramientas informáticas.</p>
                         </div>
+                         <div class="cert-item">
+                            <h4>Certificación de PowerBi</h4>
+                            <p>Conocimientos fundamentales en manejo de datos.</p>
+                        </div>
                         <div class="cert-item">
                             <h4>Permiso de Conducir</h4>
                             <p>Licencia Particular Categoría A1.</p>
                         </div>
                         <div class="cert-item">
                             <h4>Idiomas</h4>
-                            <p><strong>Inglés:</strong> Nivel Principiante</p>
+                            <p><strong>Inglés:</strong> Nivel Basico</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+      <!-- ==========================================================================
+           NUEVA SECCIÓN: CERTIFICACIONES CON VISTA PREVIA PDF
+           ========================================================================== -->
+        <section id="certificaciones" class="section dark-section">
+            <div class="section-container">
+                <h2 class="green-border">Certificaciones Académicas</h2>
+                
+                <div class="certifications-grid">
+                    <!-- Certificado 1: Ofimática Básica -->
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <span class="cert-badge">Ofimática</span>
+                            <h3 class="cert-title">Certificación en Ofimática Básica</h3>
+                            <p class="cert-institution">Universidad Nacional Hermilio Valdizán</p>
+                        </div>
+                        
+                        <!-- Contenedor del Visor PDF (Tú solo subes tu archivo como 'ofimatica.pdf') -->
+                        <div class="pdf-container">
+                            <object data="Certificado Ofimatica Basica - Morales.pdf" type="application/pdf" width="100%" height="100%">
+                                <div class="pdf-fallback">
+                                    <p>📄 Vista previa no disponible en este dispositivo.</p>
+                                    <a href="Certificado Ofimatica Basica - Morales.pdf" target="_blank" class="pdf-btn">Ver Certificado Completo</a>
+                                </div>
+                            </object>
+                        </div>
+                    </div>
 
+                    <!-- Certificado 2: Power BI -->
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <span class="cert-badge">Data & BI</span>
+                            <h3 class="cert-title">Certificado en Power BI</h3>
+                            <p class="cert-institution">Formación y Desarrollo Profesional</p>
+                        </div>
+                        
+                        <!-- Contenedor del Visor PDF (Tú solo subes tu archivo como 'powerbi.pdf') -->
+                        <div class="pdf-container">
+                            <object data="Certificado Power Bi -Morales.pdf" type="application/pdf" width="100%" height="100%">
+                                <div class="pdf-fallback">
+                                    <p>📄 Vista previa no disponible en este dispositivo.</p>
+                                    <a href="Certificado Power Bi -Morales.pdf" target="_blank" class="pdf-btn">Ver Certificado Completo</a>
+                                </div>
+                            </object>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="contacto" class="section dark-section">
             <div class="section-container">
                 <h2>Contacto</h2>

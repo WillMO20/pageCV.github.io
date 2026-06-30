@@ -567,3 +567,185 @@ body {
 .download-cv-btn .btn-icon {
     font-size: 1.1rem;
 }
+/* ==========================================================================
+   SECCIÓN CERTIFICACIONES - ESTILOS Y EFECTO HOVER NEÓN GREEN
+   ========================================================================== */
+.green-border {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid #2ecc71; /* Borde verde característico del CV */
+    padding-left: 1rem;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 2.5rem;
+}
+
+.cert-card {
+    background-color: #0b0d10;
+    border: 1px solid #1f262e;
+    border-top: 3px solid #2ecc71; /* Borde superior verde inicial */
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+/* Efecto Hover interactivo de alto contraste */
+.cert-card:hover {
+    background: rgba(46, 204, 113, 0.02); /* Destello sutil de fondo */
+    transform: translateY(-6px); /* Elevación elegante */
+    border-top-color: #2ecc71; /* Mantiene verde brillante */
+    box-shadow: 0 12px 35px rgba(46, 204, 113, 0.22); /* Sombra neón verde */
+}
+
+.cert-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cert-title {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   ESTILOS DE TARJETAS CON VISOR PDF INTEGRADO
+   ========================================================================== */
+.green-border {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid #2ecc71;
+    padding-left: 1rem;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.cert-card {
+    background-color: #0b0d10;
+    border: 1px solid #1f262e;
+    border-top: 3px solid #2ecc71;
+    padding: 2rem;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* El mismo efecto hover neón que te gusta */
+.cert-card:hover {
+    background: rgba(46, 204, 113, 0.01);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(46, 204, 113, 0.18);
+}
+
+.cert-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.cert-badge {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cert-title {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.cert-institution {
+    color: #8892b0;
+    font-size: 0.9rem;
+}
+
+/* 👇 CASILLA PEQUEÑA PARA EL EMBED DEL PDF */
+.pdf-container {
+    width: 100%;
+    height: 250px; /* Tamaño ideal tipo casilla pequeña */
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #1f262e;
+    background-color: #12161a;
+}
+
+/* Estilos de respaldo por si el navegador bloquea el visor (ej. celulares) */
+.pdf-fallback {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    gap: 1rem;
+}
+
+.pdf-fallback p {
+    color: #8892b0;
+    font-size: 0.9rem;
+}
+
+.pdf-btn {
+    background-color: transparent;
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pdf-btn:hover {
+    background-color: #2ecc71;
+    color: #111;
+}
+
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .pdf-container {
+        height: 200px; /* Un toque más pequeño en celulares */
+    }
+}
+/* DISEÑO PARA PC: Dos columnas frente a frente */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2.5rem;
+}
+
+/* 👇 CONFIGURACIÓN RESPONSIVA (Media Query) */
+@media (max-width: 768px) {
+    /* DISEÑO PARA CELULAR: Las casillas se apilan una debajo de otra */
+    .certifications-grid {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+    
+    /* Achicamos un poco el visor del PDF para que no ocupe toda la pantalla del fono */
+    .pdf-container {
+        height: 200px; 
+    }
+}
