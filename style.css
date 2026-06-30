@@ -1,0 +1,569 @@
+/* ==========================================================================
+   1. RESET GLOBAL Y CONFIGURACIÓN BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #161616;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. NAVBAR SUPERIOR FIJA
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background-color: rgba(22, 22, 22, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 900;
+    border-bottom: 1px solid #222;
+}
+
+.nav-left {
+    position: relative;
+    z-index: 2500;
+}
+
+.menu-toggle-btn {
+    background: none;
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2600;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle-btn:hover {
+    background-color: #2ecc71;
+    color: #111;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #2ecc71;
+}
+
+/* ==========================================================================
+   3. MENÚ DESPLEGABLE LATERAL (SIDEBAR)
+   ========================================================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #0f0f0f;
+    border-right: 1px solid #2ecc71;
+    z-index: 2000;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sidebar .close-btn:hover {
+    color: #2ecc71;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: padding-left 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    color: #2ecc71;
+    padding-left: 10px;
+}
+
+/* Resaltado de la página activa */
+.sidebar-links a.active {
+    color: #2ecc71;
+    font-weight: bold;
+    border-left: 2px solid #2ecc71;
+    padding-left: 8px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    display: none;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+/* ==========================================================================
+   4. SECCIÓN 1: INICIO (HERO COLS & SOCIAL BAR)
+   ========================================================================== */
+.container {
+    margin-top: 75px;
+}
+
+.section {
+    padding: 5rem 4rem;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.dark-section { background-color: #111; }
+.light-section { background-color: #1a1a1a; }
+
+.section-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid #2ecc71;
+    padding-left: 1rem;
+}
+
+.hero-section {
+    position: relative;
+    min-height: 95vh;
+    /* 👇 AQUÍ COLOCAS TU IMAGEN DE FONDO */
+    background-image: url('img1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(16, 16, 16, 0.98) 50%, rgba(16, 16, 16, 0.85) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    color: #2ecc71;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    color: #ccc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.education-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #2ecc71;
+}
+
+.education-box h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.edu-item .year {
+    color: #2ecc71;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.edu-item h4 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-top: 0.1rem;
+}
+
+.edu-item p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.hero-avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.avatar-wrapper {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 4px solid #2ecc71;
+    overflow: hidden;
+    background-color: #333;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-location {
+    color: #888;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* BARRA DE REDES SOCIALES */
+.hero-social-bar {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 10;
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background-color: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.brand-icon {
+    width: 18px;
+    height: 18px;
+    filter: invert(100%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
+    transition: filter 0.3s ease;
+}
+
+.social-icon-link:hover {
+    border-color: #2ecc71;
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+.social-icon-link:hover .brand-icon {
+    filter: invert(0%) brightness(10%);
+}
+
+/* ==========================================================================
+   5. SECCIÓN 2: HISTORIAL LABORAL (TIMELINE)
+   ========================================================================== */
+.timeline {
+    position: relative;
+    border-left: 2px solid #333;
+    margin-left: 1rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    box-shadow: 0 0 8px #2ecc71;
+}
+
+.timeline-header {
+    margin-bottom: 0.8rem;
+}
+
+.timeline-date {
+    color: #2ecc71;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.timeline-header h3 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.timeline-header h4 {
+    font-size: 1.05rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.timeline-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeline-details li {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.timeline-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #2ecc71;
+}
+
+/* ==========================================================================
+   6. SECCIÓN 3: COMPETENCIAS 
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.skills-card {
+    background-color: #111;
+    border: 1px solid #222;
+    padding: 2rem;
+    border-radius: 6px;
+}
+
+.skills-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: #ccc;
+}
+
+.skills-list li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.skills-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2ecc71;
+}
+
+.cert-item {
+    margin-bottom: 1.5rem;
+}
+
+.cert-item h4 {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.cert-item p {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   7. SECCIÓN 4: CONTACTO
+   ========================================================================== */
+.contact-cards-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background-color: #1a1a1a;
+    border: 1px solid #222;
+    padding: 1.5rem;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-card h4 {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.contact-card a, .contact-card p {
+    color: #2ecc71;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Botón de descarga de CV PDF */
+.download-cv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #2ecc71;
+    color: #111;
+    text-decoration: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 30px; /* Bordes redondeados para que resalte */
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover interactivo */
+.download-cv-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px); /* Se eleva un poquito */
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    color: #fff;
+}
+
+.download-cv-btn:active {
+    transform: translateY(0);
+}
+
+.download-cv-btn .btn-icon {
+    font-size: 1.1rem;
+}

@@ -1,0 +1,584 @@
+/* ==========================================================================
+   1. RESET GLOBAL Y CONFIGURACIÓN BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #12161a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. NAVBAR SUPERIOR FIJA
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background-color: rgba(18, 22, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 900;
+    border-bottom: 1px solid #1f262e;
+}
+
+.nav-left {
+    position: relative;
+    z-index: 2500;
+}
+
+.menu-toggle-btn {
+    background: none;
+    border: 1px solid #3498db;
+    color: #3498db;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2600;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle-btn:hover {
+    background-color: #3498db;
+    color: #111;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* ==========================================================================
+   3. MENÚ DESPLEGABLE LATERAL (SIDEBAR)
+   ========================================================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #0d1013;
+    border-right: 1px solid #3498db;
+    z-index: 2000;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sidebar .close-btn:hover {
+    color: #3498db;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: padding-left 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    color: #3498db;
+    padding-left: 10px;
+}
+
+.sidebar-links a.active {
+    color: #3498db;
+    font-weight: bold;
+    border-left: 2px solid #3498db;
+    padding-left: 8px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1500;
+    display: none;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+/* ==========================================================================
+   4. SECCIÓN 1: INICIO CENTRADO CON FONDO OPCIONAL
+   ========================================================================== */
+.container {
+    margin-top: 75px;
+}
+
+.section {
+    padding: 5rem 4rem;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.dark-section { background-color: #0b0d10; }
+.light-section { background-color: #12161a; }
+
+.section-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.blue-border {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 5px solid #3498db;
+    padding-left: 1rem;
+}
+
+/* Aquí manejas tu imagen de fondo difuminada */
+.hero-section {
+    position: relative;
+    min-height: 95vh;
+    /* 👇 PON AQUÍ EL NOMBRE DE TU IMAGEN CUANDO LA TENGAS */
+    background-image: url('img4.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Filtro oscuro para proteger la lectura del texto centrado */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 22, 26, 0.88); 
+    z-index: 1;
+}
+
+.hero-content-centered {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    color: #3498db;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    color: #b0c0d0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.education-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 3px solid #3498db;
+    max-width: 750px;
+    text-align: center;
+}
+
+.education-box h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.education-box p {
+    color: #b0c0d0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.university-tag {
+    margin-top: 2rem;
+    color: #3498db;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   5. LÍNEA DE TIEMPO (ESPECIALIDADES)
+   ========================================================================== */
+.timeline {
+    position: relative;
+    border-left: 2px solid #242f3d;
+    margin-left: 1rem;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-2rem - 6px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3498db;
+    box-shadow: 0 0 8px #3498db;
+}
+
+.timeline-header {
+    margin-bottom: 0.8rem;
+}
+
+.blue-text {
+    color: #3498db;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.timeline-header h3 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.timeline-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeline-details li {
+    color: #b0c0d0;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.timeline-details li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+}
+
+/* ==========================================================================
+   6. GRID DE COMPETENCIAS TÉCNICAS
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.skills-card {
+    background-color: #0b0d10;
+    border: 1px solid #1f262e;
+    padding: 2rem;
+    border-radius: 6px;
+}
+
+.blue-underline {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    border-bottom: 1px solid #3498db;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: #b0c0d0;
+}
+
+.skills-list li {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.skills-list li.blue-bullet::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+}
+
+.cert-item {
+    margin-bottom: 1.5rem;
+}
+
+.cert-item h4 {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.cert-item p {
+    color: #6c7a89;
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   TARJETA DE PROYECCIÓN LABORAL CON EFECTO NEÓN ELÉCTRICO
+   ========================================================================== */
+.education-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 3px solid #3498db;
+    max-width: 750px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* El nuevo efecto Hover con iluminación de alto contraste */
+.education-box:hover {
+    /* Fondo ligeramente iluminado para hacer contraste con el texto blanco */
+    background: rgba(0, 242, 254, 0.04); 
+    transform: translateY(-6px); /* Se eleva con elegancia */
+    
+    /* El borde cambia a un cian eléctrico ultra brillante */
+    border-top-color: #00f2fe; 
+    
+    /* Sombra de luz neón que resalta en la oscuridad */
+    box-shadow: 0 12px 35px rgba(0, 242, 254, 0.25); 
+}
+
+.education-box h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Al pasar el mouse, el título también se ilumina */
+.education-box:hover h3 {
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+}
+
+.education-box p {
+    color: #e0e6ed; /* Letras un toque más claras para un contraste perfecto */
+    font-size: 0.98rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+/* El texto se vuelve blanco puro al hacer hover */
+.education-box:hover p {
+    color: #ffffff;
+}
+/* ==========================================================================
+   6. GRID DE COMPETENCIAS TÉCNICAS CON EFECTO NEÓN ELÉCTRICO
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+/* Tarjetas principales con efecto interactivo */
+.skills-card {
+    background-color: #0b0d10;
+    border: 1px solid #1f262e;
+    border-top: 3px solid #3498db; /* Borde superior inicial azul */
+    padding: 2rem;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+/* El efecto Hover para iluminar cada recuadro */
+.skills-card:hover {
+    background: rgba(0, 242, 254, 0.02); /* Destello de fondo ultra sutil */
+    transform: translateY(-6px); /* Elevación elegante */
+    border-top-color: #00f2fe; /* El borde cambia al cian eléctrico brillante */
+    box-shadow: 0 12px 35px rgba(0, 242, 254, 0.2); /* Sombra de luz neón */
+}
+
+.blue-underline {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    border-bottom: 1px solid #3498db;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* El subtítulo se ilumina al pasar el mouse por la tarjeta */
+.skills-card:hover .blue-underline {
+    color: #00f2fe;
+    border-bottom-color: #00f2fe;
+}
+
+/* Configuración de las listas de software */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    color: #b0c0d0;
+}
+
+.skills-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.skills-list li.blue-bullet::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    transition: color 0.3s ease;
+}
+
+/* Iluminación del texto de la lista en Hover */
+.skills-card:hover .skills-list li {
+    color: #ffffff; /* Texto blanco puro para alto contraste */
+}
+
+.skills-card:hover .skills-list li.blue-bullet::before {
+    color: #00f2fe; /* El check cambia a cian brillante */
+}
+
+/* Elementos del ecosistema 4.0 / 5.0 (Derecha) */
+.cert-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.cert-item:last-child {
+    margin-bottom: 0;
+}
+
+.cert-item h4 {
+    color: #fff;
+    font-size: 1.15rem;
+    transition: color 0.3s ease;
+}
+
+/* Los títulos internos de innovación también brillan */
+.skills-card:hover .cert-item h4 {
+    color: #00f2fe;
+}
+
+.cert-item p {
+    color: #6c7a89;
+    font-size: 0.98rem;
+    margin-top: 0.3rem;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* Las descripciones se aclaran para leerse a la perfección */
+.skills-card:hover .cert-item p {
+    color: #e0e6ed;
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 768px) {
+    .skills-grid { 
+        grid-template-columns: 1fr; 
+        gap: 2rem;
+    }
+}
